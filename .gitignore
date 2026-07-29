@@ -1,0 +1,13 @@
+# Python
+__pycache__/
+*.pyc
+
+# Ambiente virtual
+.venv/
+venv/
+
+# Variáveis secretas
+.env
+
+# Arquivos de teste
+*.xlsx

@@ -1,7 +1,20 @@
 from fastapi import FastAPI, HTTPException, UploadFile, File
 from tratar_dados import tratar_planilha_saldo
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
+
+origins = [
+    "https://analise-pedidos-web.vercel.app/"
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.post('/tratar')
 async def dados(arquivo: UploadFile = File(...)):
